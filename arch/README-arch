@@ -1,0 +1,14 @@
+ARCHITECTURE DIRECTORY (tam-ring)
+
+This folder is for architecture notes. It documents the architectural
+patterns, data structures, and algorithms of the reference implementations
+tracked in ideas/, as well as how tam-ring plans to implement or adapt
+them under the Tamlinux philosophy (pure C11, minimal dependencies,
+libtam-only linkage, and first-class Linux virtual console support).
+
+Contents:
+
+- oama.md    : Architectural mechanisms and OAuth2 flows in oama
+               (ideas/oama.md) and tam-ring's planned C11 adaptations.
+- pizauth.md : Daemon vs. daemonless concurrency, locking, and token
+               lifecycle in pizauth (ideas/pizauth.md) and tam-ring.
