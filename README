@@ -18,7 +18,7 @@ DESIGN PHILOSOPHY
 
 - Pure C11 + libtam Only:
   Links statically against libtam.a (tam_str, tam_fs, tam_fs_tree,
-  tam_path, tam_exec, tam_ini, tam_sha256). Instant 0-2 ms cold start and
+  tam_path, tam_exec, tam_ini, tam_sha256). Fast 0-2 ms cold start and
   sub-megabyte RSS.
 
 - No TLS/Crypto Bloat in Binary:
