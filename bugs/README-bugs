@@ -1,0 +1,17 @@
+BUGS DIRECTORY (tam-ring)
+
+This folder keeps track of bugs -- both in our own implementation of
+tam-ring and in the ecosystem/reference projects we track through the
+ideas/ directory.
+
+Tracking bugs from upstream and peer projects (along with how they were
+diagnosed and solved) helps us stay aware of subtle edge cases, failure
+modes, and regressions that other implementations encounter so we can check
+for similar bugs in our own code.
+
+Suggested entries:
+
+- Local bugs: Defects found in our implementation, reproduction steps,
+  root cause, and fix or status.
+- Ecosystem bugs: Notable bugs and fixes from reference projects tracked in
+  ideas/, with notes on whether tam-ring shares the same risk or pattern.
