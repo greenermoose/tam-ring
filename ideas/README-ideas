@@ -1,0 +1,14 @@
+IDEAS DIRECTORY (tam-ring)
+
+This folder keeps track of design, ergonomics, and architectural ideas
+gathered from upstream and peer projects -- both good ideas to adopt or
+adapt and ideas or patterns to intentionally avoid under the Tamlinux
+philosophy (pure C11, minimal dependencies, libtam-only linkage, and
+first-class Linux virtual console support).
+
+Each file in this directory documents one reference project:
+
+- What the project is, its developers, license, implementation language(s),
+  and where its source code can be found.
+- Well-organized notes on ideas we borrow, ideas we adapt, and ideas we
+  avoid.
