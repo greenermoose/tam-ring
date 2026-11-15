@@ -1,0 +1,8 @@
+PLANS DIRECTORY (tam-ring)
+
+This folder holds work plans for each phase of development of tam-ring.
+
+Each tam util defines a set of milestones with semantic versions
+(semvers) in ROADMAP.md. For each development phase, we write a work plan
+here describing which ROADMAP milestones will be reached in that phase and
+how we will get there (scope, implementation steps, and verification).
