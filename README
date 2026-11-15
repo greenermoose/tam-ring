@@ -1,0 +1,80 @@
+TAM-RING -- OAUTH2 CREDENTIAL MANAGER
+
+tam-ring is a minimal OAuth2 credential manager and token broker written in
+C11, depending only on the standard C libraries (POSIX libc) and libtam
+(https://github.com/greenermoose/libtam).
+
+tam-ring is designed to supply valid OAuth2 access tokens (XOAUTH2 /
+OAUTHBEARER) to terminal mail and CLI tools -- such as tam-mail, mbsync
+(isync), msmtp, and neomutt -- without a heavyweight language runtime
+(Haskell/Rust/Python) or mandatory background daemon.
+
+Status: Planning & initial repository setup (pre-v0.1.0). No C source files
+have been written yet; see ROADMAP.md for the phased design and
+implementation plan.
+
+
+DESIGN PHILOSOPHY
+
+- Pure C11 + libtam Only:
+  Links statically against libtam.a (tam_str, tam_fs, tam_fs_tree,
+  tam_path, tam_exec, tam_ini, tam_sha256). Instant 0-2 ms cold start and
+  sub-megabyte RSS.
+
+- No TLS/Crypto Bloat in Binary:
+  Rather than linking OpenSSL, libcurl, GnuPG, or D-Bus/libsecret into
+  tam-ring, HTTPS token requests and encrypted token storage are delegated
+  via tam_exec to focused system tools (curl for HTTPS, and gpg, age, or
+  secret-tool for encrypted persistence).
+
+- oama-First On-Demand Architecture:
+  Like oama (https://github.com/pdobsan/oama), tam-ring runs on demand when
+  a client invokes "tam-ring access <account>" (e.g., via PassCmd or
+  passwordeval), refreshing expired tokens transparently and exiting
+  cleanly.
+
+- Best Ideas from pizauth:
+  While avoiding a mandatory resident daemon, tam-ring adopts strong
+  operational ideas from pizauth (https://github.com/ltratt/pizauth),
+  including configurable http_listen bindings for SSH-tunneled remote auth,
+  refresh_before_expiry lead windows, auth_notify_cmd / token_event_cmd
+  hooks, dump/restore pipelines, and machine-readable --json output.
+
+
+PLANNED CLI INTERFACE
+
+  tam-ring authorize <account> [--device]   Initial PKCE or Device Code flow
+  tam-ring access <account>                 Print valid access token
+  tam-ring renew <account>                  Force refresh of access token
+  tam-ring show <account> [--json]          Inspect token metadata and expiry
+  tam-ring dump                             Export token state to stdout
+  tam-ring restore                          Import token state from stdin
+  tam-ring printenv                         Print resolved XDG paths & config
+
+
+INTEGRATION EXAMPLES (PLANNED)
+
+  mbsync (.mbsyncrc):       PassCmd "tam-ring access user@example.com"
+  msmtp (msmtprc):          passwordeval "tam-ring access user@example.com"
+  tam-mail (accounts.ini):  oauth_cmd = tam-ring access user@example.com
+
+
+PLANNED CONFIGURATION & PATHS
+
+Configuration and encrypted token state follow XDG conventions via
+tam_xdg_path:
+
+  $XDG_CONFIG_HOME/tamlinux/tam-ring/tam-ring.ini
+      Storage backend, refresh_before_expiry, http_listen, hooks, accounts
+  $XDG_STATE_HOME/tamlinux/tam-ring/
+      Encrypted per-account token files (tam_fs_lock + tam_fs_write_atomic)
+
+
+BUILD PREREQUISITES (PLANNED)
+
+- C11 compiler (gcc or clang)
+- POSIX libc (glibc or musl) and GNU Make
+- libtam (libtam.a)
+- Runtime tools: curl (HTTPS token exchange) and age/gpg/secret-tool
+
+See ROADMAP.md for the milestone breakdown from v0.1.0 to v1.0.0.
