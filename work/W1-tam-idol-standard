@@ -1,0 +1,38 @@
+W1 TAM-IDOL 0.2.0 STANDARD
+
+Date: 2026-11-20
+AI harness: agy 1.5.13
+AI model: Gemini 4 Neon (Medium)
+Commits: the commit that adds this record
+
+
+GUIDANCE
+
+  Fred: "/plan Take the next work slice for tam-idol, if there is one."
+  Fred: "Approved. Proceed."
+
+
+DONE
+
+  - Added VERSION (0.0.0), UPSTREAM.md (nothing taken yet), AI-BLAME.md,
+    reviews/README-reviews, work/README-work, and work/WHATNOW.
+  - Fixed COPYRIGHT (replaced the tam-data copy-paste typo with the
+    standard tam-ring GPLv3 copyright and license notice).
+  - Added the tam-idol 0.2.0 version line, WHERE THINGS ARE, and LICENSE
+    sections to README while keeping all existing sections intact.
+  - Brought arch/README-arch, bugs/README-bugs, ideas/README-ideas, and
+    plans/README-plans in line with tam-idol above IN THIS REPOSITORY,
+    preserving tam-ring's own notes under IN THIS REPOSITORY.
+  - Checked with tam-idol/tools/idol-check (passes at 0.2.0) and a
+    privacy/line-length check.
+
+
+FAILED
+
+  - Nothing.
+
+
+HANDOFF
+
+  - tam-ring passes idol-check at 0.2.0. Phase 0 (v0.1.0 foundation) is
+    next; see work/WHATNOW and ROADMAP.md.

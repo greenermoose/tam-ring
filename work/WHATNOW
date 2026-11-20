@@ -1,0 +1,42 @@
+WHATNOW
+
+What tam-ring is doing now and what comes next. Read this first; revise
+it at the end of every session (work/README-work).
+
+Updated: 2026-11-20, with W1
+
+
+STATE
+
+  Version 0.0.0 on branch dev. Planning and initial repository setup
+  only; no C source files exist yet. Reference notes for oama and
+  pizauth live in ideas/ and arch/, and ROADMAP.md lays out Phases 0
+  through 5 (v0.1.0 to v1.0.0).
+
+  Follows the tam-idol 0.2.0 standard (W1).
+
+
+NEXT
+
+  1. Write plans/P1-foundation.md for Phase 0 (v0.1.0) and add
+     arch/principles.md, then build the foundation: Makefile with
+     strict C11 flags and ASan/UBSan test target, tam_ini config
+     parser, XDG path resolution, and "tam-ring printenv". Done when
+     make test passes cleanly and printenv redacts secrets.
+  2. Proceed through ROADMAP.md Phases 1 to 5 one phase plan at a time.
+
+
+WAITING FOR FRED
+
+  Nothing.
+
+
+WATCH OUT
+
+  - Pure C11 + libtam only: do not link OpenSSL, libcurl, GnuPG, or
+    libsecret. Delegate HTTPS to curl and encryption to age/gpg/
+    secret-tool via tam_exec.
+  - Never pass tokens or client secrets on argv (use stdin or curl's
+    --config -).
+  - This repository is public: keep credentials, session IDs,
+    home-directory paths, and private references out of all files.

@@ -1,14 +1,41 @@
-ARCHITECTURE DIRECTORY (tam-ring)
+ARCHITECTURE
 
-This folder is for architecture notes. It documents the architectural
-patterns, data structures, and algorithms of the reference implementations
-tracked in ideas/, as well as how tam-ring plans to implement or adapt
-them under the Tamlinux philosophy (pure C11, minimal dependencies,
-libtam-only linkage, and first-class Linux virtual console support).
+This folder documents the system architecture of this repository's
+project: the modules and how they connect, the data structures, the
+algorithms, the dependencies, and the evaluations of other projects that
+shaped them.
 
-Contents:
 
-- oama.md    : Architectural mechanisms and OAuth2 flows in oama
-               (ideas/oama.md) and tam-ring's planned C11 adaptations.
-- pizauth.md : Daemon vs. daemonless concurrency, locking, and token
-               lifecycle in pizauth (ideas/pizauth.md) and tam-ring.
+WHAT GOES HERE
+
+  principles.md        the design rules every change follows
+  data-structures.md   the main structures, as they are built today
+  dependencies.md      every library the project uses, why, and which
+                       version removes it
+  <name>-evaluation.md how another project works; what to take from it
+                       and what not to repeat
+
+  A project without code yet starts with principles.md. Later phases add
+  their own files; each plan says which.
+
+
+KEEPING IT TRUE
+
+  These documents describe the code as it is. A change that alters a
+  structure, an algorithm or a dependency updates the matching file in
+  the same commit. Where code and document disagree, the code is right
+  and the document is a bug.
+
+
+IN THIS REPOSITORY
+
+  Architecture notes here document the patterns, data structures, and
+  algorithms of the reference implementations tracked in ideas/, and how
+  tam-ring plans to adapt them under the Tamlinux philosophy (pure C11,
+  minimal dependencies, libtam-only linkage, and first-class Linux
+  virtual console support).
+
+  oama.md      architectural mechanisms and OAuth2 flows in oama
+               (ideas/oama.md) and tam-ring's planned C11 adaptations
+  pizauth.md   daemon vs. daemonless concurrency, locking, and token
+               lifecycle in pizauth (ideas/pizauth.md) and tam-ring

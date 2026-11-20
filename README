@@ -78,3 +78,27 @@ BUILD PREREQUISITES (PLANNED)
 - Runtime tools: curl (HTTPS token exchange) and age/gpg/secret-tool
 
 See ROADMAP.md for the milestone breakdown from v0.1.0 to v1.0.0.
+
+Follows the tam-idol 0.2.0 standard.
+
+
+WHERE THINGS ARE
+
+  arch/            architecture notes and reference-design evaluations
+  bugs/            one record per bug (B1, B2, ...)
+  ideas/           ideas from other projects (oama, pizauth)
+  plans/           one plan per work phase (P1, P2, ...)
+  reviews/         one record per review (R1, R2, ...)
+  work/            WHATNOW (read it first) and the work records
+  VERSION          the current version (0.0.0 until there is code)
+  ROADMAP.md       milestones with their version numbers
+  UPSTREAM.md      code taken from other projects (none)
+  AI-BLAME.md      how AI work is recorded here
+  COPYRIGHT        copyright and license notices
+  LICENSE          GNU General Public License, version 3
+
+
+LICENSE
+
+  tam-ring is free software under the GNU General Public License,
+  version 3 or later. See COPYRIGHT.
